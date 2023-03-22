@@ -1,43 +1,74 @@
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+
+//public class Spawnenemies : MonoBehaviour
+//{
+
+//    public GameObject enemyPrefab;
+//    public GameObject player;
+
+//    [SerializeField] private float _spawnIntervall;
+//    public float _spawnRange;
+//    private float _timeSinceLastSpawn;
+
+//    void Start()
+//    {
+//        StartCoroutine(SpawnAnEnemy()); 
+//    }
+
+//    IEnumerator SpawnAnEnemy()
+//    {
+//        Vector2 spawnPos = player.transform.position;
+//        spawnPos += Random.insideUnitCircle.normalized * _spawnRange;
+
+//        Vector3 enemyDirection = new Vector3(player.transform.position.x, 0, player.transform.position.z) - new Vector3(spawnPos.x, 0, spawnPos.y);
+//        Quaternion enemyRotation = Quaternion.LookRotation(enemyDirection, Vector3.up);
+
+//        Instantiate(enemyPrefab, new Vector3(spawnPos.x, 0, spawnPos.y), enemyRotation);
+//        yield return new WaitForSeconds(_spawnIntervall);
+//        StartCoroutine(SpawnAnEnemy());
+//    }
+//}
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawnenemies : MonoBehaviour
 {
-
     public GameObject enemyPrefab;
     public GameObject player;
+    public float spawnRange;
+    [SerializeField] private float _spawnInterval;
 
-    [SerializeField] private float _spawnIntervall;
-    public float _spawnRange;
-    private float _timeSinceLastSpawn;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        StartCoroutine(SpawnAnEnemy()); 
+        StartCoroutine(SpawnEnemies());
     }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    _timeSinceLastSpawn += Time.deltaTime;
-
-    //    if (_timeSinceLastSpawn >= _spawnIntervall)
-    //    {
-    //        GameObject newEnemy = Instantiate(enemyPrefab, new Vector3(Random.Range(5f, 5f), Random.Range(-6f, 6f), 0), Quaternion.identity);
-    //        _timeSinceLastSpawn = 0;
-            
-            
-    //    }
-    //}
- 
-    IEnumerator SpawnAnEnemy()
+    private IEnumerator SpawnEnemies()
     {
-        Vector2 spawnPos = player.transform.position;
-        spawnPos += Random.insideUnitCircle.normalized * _spawnRange;
+        while (true)
+        {
+            Vector2 spawnPosition = GetRandomSpawnPosition();
+            Vector2 playerDirection = (Vector2) player.transform.position - spawnPosition;
+            float spawnAngle = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg - 90f;
+            Quaternion spawnRotation = Quaternion.Euler(0, 0, spawnAngle);
 
-        Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-        yield return new WaitForSeconds(_spawnIntervall);
-        StartCoroutine(SpawnAnEnemy());
+            Instantiate(enemyPrefab, spawnPosition, spawnRotation);
+
+            yield return new WaitForSeconds(_spawnInterval);
+        }
+    }
+
+    private Vector2 GetRandomSpawnPosition()
+    {
+        Vector2 playerPosition = player.transform.position;
+        Vector2 randomOffset = Random.insideUnitCircle.normalized * spawnRange;
+        Vector2 spawnPosition = playerPosition + randomOffset;
+
+        return spawnPosition;
     }
 }
+
