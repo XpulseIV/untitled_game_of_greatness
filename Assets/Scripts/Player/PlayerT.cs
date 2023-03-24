@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerT : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private float rotationSpeed = 200f;
+    [SerializeField] private float rotationSpeed = 700f;
 
     private Rigidbody2D rb;
     private Vector2 movement;
