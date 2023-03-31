@@ -257,6 +257,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawnController
       objectReference: {fileID: 0}
+    - target: {fileID: 15304164970287449, guid: 1c842e5e6d89b154ab8c877aab77b4f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 15304164970287450, guid: 1c842e5e6d89b154ab8c877aab77b4f6, type: 3}
       propertyPath: player
       value: 
