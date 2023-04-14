@@ -148,8 +148,8 @@ Transform:
   m_GameObject: {fileID: 38272109}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 324931547}
   - {fileID: 1874186870}
@@ -256,6 +256,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   animsYazz: {fileID: 324931550}
+  shootSpeed: 800
+  health: 67
 --- !u!95 &324931550
 Animator:
   serializedVersion: 4

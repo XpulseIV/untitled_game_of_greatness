@@ -15,10 +15,10 @@ namespace Turrets
 
         private void Update()
         {
-            if (this.isInTurret)
+            if (isInTurret)
             {
                 var turrets = new List<Collider2D>();
-                Physics2D.OverlapCircle(this.transform.position, this.lookRadius, new ContactFilter2D().NoFilter(), turrets);
+                Physics2D.OverlapCircle(transform.position, lookRadius, new ContactFilter2D().NoFilter(), turrets);
 
                 foreach (Collider2D turret in turrets.Where((c) => c.gameObject.CompareTag("Turret ")))
                 {

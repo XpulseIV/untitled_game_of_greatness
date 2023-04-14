@@ -23,7 +23,7 @@ public class ActivateSelf : MonoBehaviour
         _activatedObject = GameObject.FindGameObjectWithTag(_objectTag);
         if (_activatedObject != null)
         {
-            _activasionDistance = this.transform.position - _activatedObject.transform.position;
+            _activasionDistance = transform.position - _activatedObject.transform.position;
             if (_activasionDistance.magnitude <= _activasionRange)
             {
                 isActivated = true;

@@ -1,21 +1,22 @@
 using System;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class NormalTurret : MonoBehaviour
 {
     private Vector3 mousePos;
     public bool isActive;
-
     private DateTime timeShot;
-
     public Animator animsYazz;
+
+    public int shootSpeed;
+    public int health;
 
     void Update()
     {
-        if (this.isActive)
+        if (isActive)
         {
             animsYazz.SetBool("IsActive", true);
+
             // Get the current position of the mouse cursor
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0f;
@@ -30,12 +31,10 @@ public class NormalTurret : MonoBehaviour
             // Apply the rotation to the object
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            var timeNow = DateTime.Now();
-            
-            if (Input.GetKey(KeyCode.Space) && (DateTime.Now() - timeShot) > 2500)
+            if (Input.GetKey(KeyCode.Space) && (DateTime.Now - timeShot).TotalMilliseconds > shootSpeed)
             {
-                timeShot = DateTime.Now();
-                this.animsYazz.Play("TurretShoot");
+                timeShot = DateTime.Now;
+                animsYazz.Play("TurretShoot");
             }
 
             return;
