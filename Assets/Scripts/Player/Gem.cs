@@ -13,7 +13,7 @@ public class Gem : MonoBehaviour
     private void Update()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
+        mousePos.z = 0; 
 
         transform.position = mousePos;
     }
