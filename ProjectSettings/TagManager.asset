@@ -50,3 +50,6 @@ TagManager:
   - name: TurretGun
     uniqueID: 1355118377
     locked: 0
+  - name: Night
+    uniqueID: 413360777
+    locked: 0

@@ -42,9 +42,28 @@ public class Spawnenemies : MonoBehaviour
     public float spawnRange;
     [SerializeField] private float _spawnInterval;
 
-    private void Start()
+    //private void Start()
+    //{
+    //    //StartCoroutine(SpawnEnemies());
+    //    // Check if coroutine is already running
+    //    if (!IsInvoking("SpawnEnemies"))
+    //    {
+    //        // Start the coroutine
+    //        StartCoroutine(SpawnEnemies());
+    //    }
+
+    //}
+
+    private void OnEnable()
     {
+        // Start the coroutine
         StartCoroutine(SpawnEnemies());
+    }
+
+    private void OnDisable()
+    {
+        // Stop the coroutine
+        StopCoroutine(SpawnEnemies());
     }
 
     private IEnumerator SpawnEnemies()
