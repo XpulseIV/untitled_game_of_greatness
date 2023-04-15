@@ -120,7 +120,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0df9e80a1cf3b914eaee93e1a246222a, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -137,7 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309f916d9d1c5264e83cd7141919f947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStats: {fileID: 0}
 --- !u!114 &-8268294884245029611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,8 +152,8 @@ MonoBehaviour:
   enemyHealth: 10
   moveSpeed: 3
   rotateSpeed: 3
+  pushForce: 1
   scaling: 1.5
-  _nightBox: {fileID: 5583396116681357809, guid: 452ea3471684aa64e836fd6c30637a45, type: 3}
 --- !u!95 &284500814768406139
 Animator:
   serializedVersion: 4

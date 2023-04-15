@@ -8,7 +8,9 @@ public class EnemyStats : MonoBehaviour
     public float enemyHealth;
     public float moveSpeed;
     public float rotateSpeed;
+    public float pushForce;
     public float scaling;
+    
     private GameObject _nightBox;
     private DayNight _dayNight;
 
