@@ -38,7 +38,7 @@ using UnityEngine;
 public class Spawnenemies : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public GameObject player;
+    private GameObject _tplayer;
     public float spawnRange;
     [SerializeField] private float _spawnInterval;
 
@@ -57,6 +57,7 @@ public class Spawnenemies : MonoBehaviour
     private void OnEnable()
     {
         // Start the coroutine
+        _tplayer = GameObject.Find("T-spelaren");
         StartCoroutine(SpawnEnemies());
     }
 
@@ -71,7 +72,7 @@ public class Spawnenemies : MonoBehaviour
         while (true)
         {
             Vector2 spawnPosition = GetRandomSpawnPosition();
-            Vector2 playerDirection = (Vector2) player.transform.position - spawnPosition;
+            Vector2 playerDirection = (Vector2) _tplayer.transform.position - spawnPosition;
             float spawnAngle = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg - 90f;
             Quaternion spawnRotation = Quaternion.Euler(0, 0, spawnAngle);
 
@@ -83,7 +84,7 @@ public class Spawnenemies : MonoBehaviour
 
     private Vector2 GetRandomSpawnPosition()
     {
-        Vector2 playerPosition = player.transform.position;
+        Vector2 playerPosition = _tplayer.transform.position;
         Vector2 randomOffset = Random.insideUnitCircle.normalized * spawnRange;
         Vector2 spawnPosition = playerPosition + randomOffset;
 
