@@ -33,7 +33,7 @@ public class PlayerT : MonoBehaviour
 
         if (Input.GetKey(KeyCode.S))
         {
-            rb.MovePosition(rb.position - forwardDirection * (moveSpeed*2) * Time.deltaTime);
+            rb.MovePosition(rb.position - (moveSpeed*2) * Time.deltaTime * forwardDirection);
         }
     }
 
