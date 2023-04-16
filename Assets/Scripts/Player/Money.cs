@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System;
 
-public class TrapStats : MonoBehaviour
+public class Money : MonoBehaviour
 {
-    public float damageTickSpeed;
-    public float damageOverTime;
-    public float burstSpeed;
-    public float burstDamage;
-
+    public TMP_Text coinDispaly;
+    public int money;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +18,6 @@ public class TrapStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        coinDispaly.text = Convert.ToString(money);
     }
 }

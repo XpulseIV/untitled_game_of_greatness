@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTickSpeed: 0.1
   damageOverTime: 1
+  burstSpeed: 1
+  burstDamage: 5
 --- !u!61 &1462317184
 BoxCollider2D:
   m_ObjectHideFlags: 0
