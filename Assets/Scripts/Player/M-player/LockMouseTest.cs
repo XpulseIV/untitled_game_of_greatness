@@ -10,7 +10,9 @@ public class LockMouseTest : MonoBehaviour
     static extern bool SetCursorPos(int X, int Y);
 
     [SerializeField] private GameObject _setCursorTest;
+    public GameObject tspelaren;
     private int _xPos, _yPos;
+    public float maxRangeFromTspelaren;
     
 
     private void Start()
@@ -27,7 +29,12 @@ public class LockMouseTest : MonoBehaviour
             _setCursorTest.SetActive(false);
         }
 
-        if(Input.mousePosition.x < _xPos / 2)
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+
+        Vector2 distanceToTspelaren = mousePos - tspelaren.transform.position;
+
+        if (distanceToTspelaren.magnitude >= maxRangeFromTspelaren)
         {
             SetCursorPos(_xPos, _yPos);
         }
