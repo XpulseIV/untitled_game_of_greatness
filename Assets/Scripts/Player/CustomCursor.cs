@@ -112,3 +112,5 @@ public class CustomCursor : MonoBehaviour
         // Hide the trap cursor sprite
         spriteRenderer.sprite = normalCursorSprite;
         isInTrap = false;
+    }
+}
