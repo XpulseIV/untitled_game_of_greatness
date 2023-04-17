@@ -14,10 +14,10 @@ public class ActivateSelf : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
-
+    
     void Update()
     {
         _activatedObject = GameObject.FindGameObjectWithTag(_objectTag);
@@ -32,6 +32,6 @@ public class ActivateSelf : MonoBehaviour
         else
         {
             isActivated = false;
-        }
+        }        
     }
 }
