@@ -23,7 +23,7 @@ public class LockMouseTest : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey("1"))
+        if (Input.GetKey(KeyCode.P))
         {
             Cursor.visible = true;
             _setCursorTest.SetActive(false);
