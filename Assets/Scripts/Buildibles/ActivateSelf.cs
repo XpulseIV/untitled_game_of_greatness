@@ -17,6 +17,7 @@ public class ActivateSelf : MonoBehaviour
 
     void Start()
     {
+        mspelaren = GameObject.Find("MouseCursor");
         _customCursor = mspelaren.GetComponent<CustomCursor>();
     }
 

@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -340391649
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1984320476, guid: 3d9d35c2231ed96468f5d258d5a71dad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,7 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectTag: ActivatedConveyourBelt
   _activasionRange: 5
+  _normalTag: 
   isActivated: 0
+  mspelaren: {fileID: 0}
 --- !u!114 &841946177953696660
 MonoBehaviour:
   m_ObjectHideFlags: 0

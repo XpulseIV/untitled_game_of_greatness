@@ -46,11 +46,32 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Backgorund
+    uniqueID: 3915545077
+    locked: 0
+  - name: ConveyourBelt
+    uniqueID: 3954575647
+    locked: 0
+  - name: Traps
+    uniqueID: 4186578893
+    locked: 0
   - name: TurretBase
     uniqueID: 3594863439
     locked: 0
   - name: TurretGun
     uniqueID: 1355118377
+    locked: 0
+  - name: T-spelaren
+    uniqueID: 166213309
+    locked: 0
+  - name: Enemy
+    uniqueID: 391881267
+    locked: 0
+  - name: Wall
+    uniqueID: 509378605
+    locked: 0
+  - name: M-spelaren
+    uniqueID: 2039399407
     locked: 0
   - name: Night
     uniqueID: 413360777
