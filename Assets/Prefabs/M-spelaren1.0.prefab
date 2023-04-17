@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 683675596860601240}
   - component: {fileID: 683675596860601247}
   - component: {fileID: -7483125710531258400}
+  - component: {fileID: 7153508186754109385}
   - component: {fileID: 683675596860601246}
   m_Layer: 0
   m_Name: M-spelaren1.0
@@ -122,6 +123,18 @@ MonoBehaviour:
   _setCursorTest: {fileID: 683675596860601245}
   tspelaren: {fileID: 4076275773367067554, guid: de28be12048c7d946bfd59ce55534416, type: 3}
   maxRangeFromTspelaren: 5
+--- !u!114 &7153508186754109385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683675596860601245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d581fd6ae9586b43b24b4496268ea52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &683675596860601246
 MonoBehaviour:
   m_ObjectHideFlags: 0
