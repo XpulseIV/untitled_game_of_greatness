@@ -9,13 +9,13 @@ public class DayNight : MonoBehaviour
     public float timeSpeed;
     //private float _timeChange = 0;
     private bool _isGettingNight = true;
-    private GameObject _enemySpawnController;
+    public GameObject enemySpawnController;
     public float numbersOfDays;
 
     // Start is called before the first frame update
     void Start()
     {
-        _enemySpawnController = GameObject.Find("EnemySpawnController");
+        //enemySpawnController = GameObject.Find("EnemySpawnController");
     }
 
     // Update is called once per frame
@@ -45,15 +45,15 @@ public class DayNight : MonoBehaviour
 
         if(_alpha > 0.5)
         {
-            _enemySpawnController.SetActive(true);
+            enemySpawnController.SetActive(true);
         }
         else
         {
-            if (_enemySpawnController.active == true)
+            if (enemySpawnController.active == true)
             {
                 numbersOfDays++;
             }
-            _enemySpawnController.SetActive(false);
+            enemySpawnController.SetActive(false);
         }
     }
 }

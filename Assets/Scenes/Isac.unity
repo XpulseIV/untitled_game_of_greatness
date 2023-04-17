@@ -206,6 +206,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5583396116681357810, guid: 452ea3471684aa64e836fd6c30637a45, type: 3}
+      propertyPath: enemySpawnController
+      value: 
+      objectReference: {fileID: 116509027}
     - target: {fileID: 5583396116681357811, guid: 452ea3471684aa64e836fd6c30637a45, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -256,6 +260,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5583396116681357811, guid: 452ea3471684aa64e836fd6c30637a45, type: 3}
   m_PrefabInstance: {fileID: 112123833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &116509027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 15304164970287449, guid: 1c842e5e6d89b154ab8c877aab77b4f6, type: 3}
+  m_PrefabInstance: {fileID: 15304164665830888}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &291978956
 GameObject:
