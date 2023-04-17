@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CustomCursor : MonoBehaviour
 {
-    [SerializeField] public Sprite normalCursor;
-    [SerializeField] public Sprite utilityCursor;
+    public Sprite normalCursor;
+    public Sprite utilityCursor;
 
-    [SerializeField] public bool inUtility;
+    public bool inUtility;
 
     void Start()
     {
@@ -20,25 +20,34 @@ public class CustomCursor : MonoBehaviour
         mousePos.z = 0;
 
         transform.position = mousePos;
+
+        if (Input.GetKey(KeyCode.E) && inUtility)
+        {
+            inUtility = false;
+        }
     }
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKey(KeyCode.E)) // check if left mouse button is pressed down
+        if (Input.GetKey(KeyCode.E) && !inUtility) // check if left mouse button is pressed down
         {
             if (collision.gameObject.tag == "Traps")
             {
                 Debug.Log("Collided with trap");
                 collision.gameObject.tag = "ActivatedTrap";
-
+                inUtility = true;
             }
             else if (collision.gameObject.tag == "ConveyourBelt")
             {
-                // do something for conveyour belts
+                Debug.Log("Collided with ConveyourBelt");
+                collision.gameObject.tag = "ActivatedConveyourBelt";
+                inUtility = true;
             }
             else if (collision.gameObject.tag == "Turrets")
             {
-                // do something for turrets
+                Debug.Log("Collided with Turrets");
+                collision.gameObject.tag = "ActivatedTurrets";
+                inUtility = true;
             }
         }
     }
