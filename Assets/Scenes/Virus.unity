@@ -202,7 +202,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1798510253, guid: b0c436db655e8a44da14034cb702b3d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -241,18 +241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa0bc09fe6f8ed419a46e0e505247a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trap: {fileID: 944700123}
-  spriteRenderer: {fileID: 379637967}
-  normalCursorSprite: {fileID: -1798510253, guid: b0c436db655e8a44da14034cb702b3d1, type: 3}
-  trapCursorSprite: {fileID: -398883874, guid: 149f70af3b37bd04a92288bd0acbd9eb, type: 3}
-  normalTag: Untagged
-  activeTag: Activated
-  traps: []
---- !u!1 &944700123 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6731356363499097894, guid: 0bbbb2cc7a651f247b4a4f187e2284c5, type: 3}
-  m_PrefabInstance: {fileID: 1220460535}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1220460535
 PrefabInstance:
   m_ObjectHideFlags: 0
