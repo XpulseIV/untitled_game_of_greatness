@@ -143,4 +143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectTag: ActivatedTrap
   _activasionRange: 2
+  _normalTag: Traps
   isActivated: 0
+  mspelaren: {fileID: 0}
