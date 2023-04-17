@@ -4,35 +4,30 @@ using UnityEngine;
 
 public class ActivateSelf : MonoBehaviour
 {
-    public string objectTag = "Traps";  // The tag to look for
-    public float activationRange = 2f;  // The range at which the trap can be activated
-    public bool isActivated = false;  // The activation state of the trap
-    public GameObject[] linkedTraps;  // Other traps linked to this one
+    [SerializeField] private Transform _activatedObject;
+    [SerializeField] private string _objectTag;
+    [SerializeField] private float _activasionRange;
+    public bool isActivated = false;
 
-    private void Update()
+    // Start is called before the first frame update
+    void Start()
     {
-        // Check if the trap is activated
-        if (isActivated)
-        {
-            // Set the tag to "ActivatedTrap"
-            gameObject.tag = "ActivatedTrap";
+        //_activatedObject = GameObject.FindGameObjectWithTag(_objectTag).transform;
+    }
 
-            // Activate linked traps
-            foreach (GameObject trap in linkedTraps)
-            {
-                trap.GetComponent<ActivateSelf>().isActivated = true;
-            }
+    // Update is called once per frame
+    void Update()
+    {
+        _activatedObject = GameObject.FindGameObjectWithTag(_objectTag).transform;
+        Vector2 activasionDistance = this.transform.position - _activatedObject.position;
+
+        if (activasionDistance.magnitude <= _activasionRange)
+        {
+            isActivated = true;
         }
         else
         {
-            // Set the tag to "Trap"
-            gameObject.tag = "Traps";
-
-            // Deactivate linked traps
-            foreach (GameObject trap in linkedTraps)
-            {
-                trap.GetComponent<ActivateSelf>().isActivated = false;
-            }
+            isActivated = false;
         }
     }
 }
