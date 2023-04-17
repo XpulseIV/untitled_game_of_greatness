@@ -20,11 +20,6 @@ public class CustomCursor : MonoBehaviour
         mousePos.z = 0;
 
         transform.position = mousePos;
-
-        if (Input.GetKey(KeyCode.E) && inUtility)
-        {
-            inUtility = false;
-        }
     }
 
     public void OnTriggerStay2D(Collider2D collision)
@@ -35,21 +30,26 @@ public class CustomCursor : MonoBehaviour
             {
                 Debug.Log("Collided with trap");
                 collision.gameObject.tag = "ActivatedTrap";
-                inUtility = true;
+                Invoke("UtilityYes", 0.1f);
             }
             else if (collision.gameObject.tag == "ConveyourBelt")
             {
                 Debug.Log("Collided with ConveyourBelt");
                 collision.gameObject.tag = "ActivatedConveyourBelt";
-                inUtility = true;
+                Invoke("UtilityYes", 0.1f);
             }
             else if (collision.gameObject.tag == "Turrets")
             {
                 Debug.Log("Collided with Turrets");
                 collision.gameObject.tag = "ActivatedTurrets";
-                inUtility = true;
+                Invoke("UtilityYes", 0.1f);
             }
         }
+    }
+
+    public void UtilityYes()
+    {
+        inUtility = true;
     }
 
 }
