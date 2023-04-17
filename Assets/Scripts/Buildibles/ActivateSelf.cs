@@ -37,9 +37,9 @@ public class ActivateSelf : MonoBehaviour
             isActivated = false;
         }
 
-        if (_customCursor.inUtility == true && Input.GetKey("e"))
+        if (_customCursor.inUtility == true && Input.GetKey(KeyCode.E))
         {
-            gameObject.tag = _normalTag;
+            this.gameObject.tag = _normalTag;
             Invoke("DeactivateInUtilty", 0.1f);
         }
     }
