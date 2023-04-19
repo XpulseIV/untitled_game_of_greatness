@@ -495,6 +495,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4076275773367067553, guid: de28be12048c7d946bfd59ce55534416, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4076275773367067554, guid: de28be12048c7d946bfd59ce55534416, type: 3}
       propertyPath: m_Name
       value: T-spelaren
@@ -674,6 +678,10 @@ PrefabInstance:
       propertyPath: mspelaren
       value: 
       objectReference: {fileID: 1651230465}
+    - target: {fileID: 2906266472336297787, guid: 0bbbb2cc7a651f247b4a4f187e2284c5, type: 3}
+      propertyPath: isActivated
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6731356363499097892, guid: 0bbbb2cc7a651f247b4a4f187e2284c5, type: 3}
       propertyPath: m_RootOrder
       value: 3

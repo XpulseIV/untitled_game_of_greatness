@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 841946177953696660}
   - component: {fileID: 5287947796883059808}
   - component: {fileID: 5287947796883059809}
+  - component: {fileID: 4233238144774539263}
   m_Layer: 0
   m_Name: ConveyourBelt
   m_TagString: ConveyourBelt
@@ -163,3 +164,23 @@ AreaEffector2D:
   m_ForceTarget: 0
   m_Drag: 0
   m_AngularDrag: 0
+--- !u!95 &4233238144774539263
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5287947796883059836}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b209ec50026e91f4bba9a62d42aa8b6d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4846843676417156624}
   - component: {fileID: 1462317184}
   - component: {fileID: 2906266472336297787}
+  - component: {fileID: 3598470083368850828}
   m_Layer: 0
   m_Name: Trap
-  m_TagString: Traps
+  m_TagString: ActivatedTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,7 +143,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectTag: ActivatedTrap
-  _activasionRange: 2
+  _activasionRange: 5
   _normalTag: Traps
   isActivated: 0
   mspelaren: {fileID: 0}
+--- !u!95 &3598470083368850828
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731356363499097894}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 89ebe9085de5eb143a543ccae72f8a28, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
