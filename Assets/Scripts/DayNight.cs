@@ -49,7 +49,7 @@ public class DayNight : MonoBehaviour
         }
         else
         {
-            if (enemySpawnController.active == true)
+            if (enemySpawnController.activeInHierarchy)
             {
                 numbersOfDays++;
             }

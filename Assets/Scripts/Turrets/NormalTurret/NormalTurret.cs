@@ -7,6 +7,8 @@ public class NormalTurret : MonoBehaviour
     public bool isActive;
     private DateTime timeShot;
     public Animator animsYazz;
+    public GameObject Bullet;
+    public Transform CannonPoint;
 
     public int shootSpeed;
     public int health;
@@ -31,10 +33,12 @@ public class NormalTurret : MonoBehaviour
             // Apply the rotation to the object
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            if (Input.GetKey(KeyCode.Space) && (DateTime.Now - timeShot).TotalMilliseconds > shootSpeed)
+            if (Input.GetKey(KeyCode.Space) && ((DateTime.Now - timeShot).TotalMilliseconds > shootSpeed))
             {
                 timeShot = DateTime.Now;
                 animsYazz.Play("TurretShoot");
+
+                Instantiate(Bullet, CannonPoint.position, transform.rotation);
             }
 
             return;
