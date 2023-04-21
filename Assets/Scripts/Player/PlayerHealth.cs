@@ -7,13 +7,13 @@ public class PlayerHealth : MonoBehaviour
 {
     public float health;
     [SerializeField] private GameObject _canvasHP;
-    private UpdateHealthBar _updateHealthBar;
+    //private UpdateHealthBar _updateHealthBar;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _updateHealthBar = _canvasHP.GetComponent<UpdateHealthBar>();
+        //_updateHealthBar = _canvasHP.GetComponent<UpdateHealthBar>();
     }
 
     // Update is called once per frame

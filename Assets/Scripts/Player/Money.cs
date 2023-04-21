@@ -7,8 +7,10 @@ using System;
 public class Money : MonoBehaviour
 {
     public TMP_Text coinDispaly;
-    public int money;
-    
+    public int playerMoney;
+
+    bool makeMoney = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,19 @@ public class Money : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        coinDispaly.text = Convert.ToString(money);
+        if (makeMoney)
+        {
+            Invoke("MoneyMak", 2f);
+            makeMoney = false;
+        }
+       
+
+        coinDispaly.text = Convert.ToString(playerMoney);
+    }
+
+    private void MoneyMak()
+    {
+        playerMoney += 5;
+        makeMoney = true;
     }
 }
