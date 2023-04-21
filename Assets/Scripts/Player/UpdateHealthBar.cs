@@ -19,13 +19,13 @@ public class UpdateHealthBar : MonoBehaviour
         
     }
 
-    private void SetMaxHealth(float maxHealth)
+    public void SetMaxHealth(float maxHealth)
     {
         _healthSlider.maxValue = maxHealth;
         _healthSlider.value = maxHealth;
     }
 
-    private void SetHealth(float health)
+    public void SetHealth(float health)
     {
         _healthSlider.value = health;
     }
