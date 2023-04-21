@@ -22,7 +22,7 @@ public class Money : MonoBehaviour
     {
         if (makeMoney)
         {
-            Invoke("MoneyMak", 2f);
+            Invoke("MoneyMak", 0.25f);
             makeMoney = false;
         }
        
@@ -32,7 +32,7 @@ public class Money : MonoBehaviour
 
     private void MoneyMak()
     {
-        playerMoney += 5;
+        playerMoney += 1;
         makeMoney = true;
     }
 }
