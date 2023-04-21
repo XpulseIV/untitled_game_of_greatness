@@ -38,10 +38,10 @@ public class CustomCursor : MonoBehaviour
                 collision.gameObject.tag = "ActivatedConveyourBelt";
                 Invoke("UtilityYes", 0.1f);
             }
-            else if (collision.gameObject.tag == "Turrets")
+            else if (collision.gameObject.tag == "Turret")
             {
                 Debug.Log("Collided with Turrets");
-                collision.gameObject.tag = "ActivatedTurrets";
+                collision.gameObject.tag = "ActivatedTurret";
                 Invoke("UtilityYes", 0.1f);
             }
         }
