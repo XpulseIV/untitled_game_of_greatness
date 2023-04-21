@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TrapStats : MonoBehaviour
@@ -29,12 +30,17 @@ public class TrapStats : MonoBehaviour
             if (Input.GetKey("space"))
             {
                 _animator.SetBool("IsInBurst", true);
-                _animator.SetBool("IsInBurst", false);
+                Invoke("DeactivateBurstAnim", _animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
             }
         }
         else
         {
             _animator.SetBool("IsOn", false);
         }
+    }
+
+    private void DeactivateBurstAnim()
+    {
+        _animator.SetBool("IsInBurst", false);
     }
 }
