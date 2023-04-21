@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  _updateHealthBar: {fileID: 0}
+  _canvasHP: {fileID: 0}
 --- !u!212 &4076275773367067555
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinDispaly: {fileID: 0}
-  money: 0
+  playerMoney: 0
 --- !u!114 &4076275773367067553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b4127fac690de4b8770fbc171afae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 5
   rotationSpeed: 200
 --- !u!50 &4076275773367067548
 Rigidbody2D:
