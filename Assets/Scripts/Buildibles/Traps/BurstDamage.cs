@@ -1,53 +1,62 @@
+//using System;
 //using System.Collections;
 //using System.Collections.Generic;
+//using Unity.VisualScripting;
 //using UnityEngine;
+//using static UnityEngine.EventSystems.EventTrigger;
+//using UnityEngine.UIElements;
 
 //public class BurstDamage : MonoBehaviour
 //{
-//    public EnemyStats enemyStats;
-//    //public float enemyHealth;
-//    private bool _hasTakenDamage;
-//    public GameObject traps;
 //    private TrapStats _trapStats;
 //    private ActivateSelf _activateSelf;
 
-//    // Start is called before the first frame update
+//    //public float burstDamage = 10f;
+//    //public float burstSpeed = 0.5f;
+
+//    private bool _hasActivated;
+
 //    void Start()
 //    {
-//        _trapStats = traps.GetComponent<TrapStats>();
-//        enemyStats = GetComponent<EnemyStats>();
+//        _trapStats = GetComponent<TrapStats>();
 //        _activateSelf = GetComponent<ActivateSelf>();
-//    }
-
-//    // Update is called once per frame
-//    void Update()
-//    {
-
 //    }
 
 //    private void OnTriggerStay2D(Collider2D collision)
 //    {
+
+
 //        if (_activateSelf.isActivated && Input.GetKey("space"))
 //        {
-//            if (collision.gameObject.tag == "Enemy")
+
+
+//            if (collision.gameObject.CompareTag("Enemy") && !_hasActivated)
 //            {
-//                if (!_hasTakenDamage)
+
+
+//                _hasActivated = true;
+
+//                var enemyStats = collision.gameObject.GetComponent<EnemyStats>();
+//                if (enemyStats != null)
 //                {
 //                    enemyStats.enemyHealth -= _trapStats.burstDamage;
-//                    _hasTakenDamage = true;
-//                    Invoke("HasTakenDamage", _trapStats.burstSpeed);
-//                }
 
-//                if (enemyStats.enemyHealth <= 0)
-//                {
-//                    Destroy(gameObject, 0);
+//                    if (enemyStats.enemyHealth <= 0)
+//                    {
+//                        Destroy(collision.gameObject);
+//                    }
+
+//                    Invoke("ResetActivation", _trapStats.burstSpeed);
 //                }
 //            }
 //        }
+
+
 //    }
-//    private void HasTakenDamage()
+
+//    private void ResetActivation()
 //    {
-//        _hasTakenDamage = false;
+//        _hasActivated = false;
 //    }
 //}
 
@@ -61,8 +70,8 @@ using UnityEngine.UIElements;
 
 public class BurstDamage : MonoBehaviour
 {
-    private TrapStats _trapStats;
-    private ActivateSelf _activateSelf;
+    private EnemyStats _enemyStats;
+    //private ActivateSelf _activateSelf;
 
     //public float burstDamage = 10f;
     //public float burstSpeed = 0.5f;
@@ -71,48 +80,40 @@ public class BurstDamage : MonoBehaviour
 
     void Start()
     {
-        _trapStats = GetComponent<TrapStats>();
-        _activateSelf = GetComponent<ActivateSelf>();
+        _enemyStats = GetComponent<EnemyStats>();
+
+        _hasActivated = false;
+        //_activateSelf = GetComponent<ActivateSelf>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerEnter2D");
+        var _trapStats = collision.gameObject.GetComponent<TrapStats>();
+        var _activateSelf = collision.gameObject.GetComponent<ActivateSelf>();
 
-        if (_activateSelf.isActivated && Input.GetKey("space"))
+        if (_activateSelf.isActivated && Input.GetKey("space") && collision.gameObject.CompareTag("Traps") && !_hasActivated)
         {
-            Debug.Log("Trap activated");
 
-            if (collision.gameObject.CompareTag("Enemy") && !_hasActivated)
+
+            Debug.Log("Should take damage");
+
+            _hasActivated = true;
+
+            _enemyStats.enemyHealth -= _trapStats.burstDamage;
+
+            if (_enemyStats.enemyHealth <= 0)
             {
-                Debug.Log("Enemy hit by trap");
-
-                _hasActivated = true;
-
-                var enemyStats = collision.gameObject.GetComponent<EnemyStats>();
-                if (enemyStats != null)
-                {
-                    enemyStats.enemyHealth -= _trapStats.burstDamage;
-
-                    if (enemyStats.enemyHealth <= 0)
-                    {
-                        Destroy(collision.gameObject);
-                    }
-                    else
-                    {
-                        Invoke("ResetActivation", _trapStats.burstSpeed);
-                    }
-                }
+                Destroy(this);
             }
+
+            Invoke("ResetActivation", _trapStats.burstSpeed);
         }
-        
-        
+
+
     }
 
     private void ResetActivation()
     {
-        Debug.Log("ResetActivation");
-
         _hasActivated = false;
     }
 }
