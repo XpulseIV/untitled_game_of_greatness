@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _updateHealthBar = _canvasHP.GetComponent<UpdateHealthBar>();
+        //_updateHealthBar = _canvasHP.GetComponent<UpdateHealthBar>();
     }
 
     // Update is called once per frame
