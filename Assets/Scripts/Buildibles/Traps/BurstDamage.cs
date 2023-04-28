@@ -91,7 +91,7 @@ public class BurstDamage : MonoBehaviour
         var _trapStats = collision.gameObject.GetComponent<TrapStats>();
         var _activateSelf = collision.gameObject.GetComponent<ActivateSelf>();
 
-        if (_activateSelf.isActivated && Input.GetKey("space") && collision.gameObject.CompareTag("Traps") && !_hasActivated)
+        if (_activateSelf.isActivated && Input.GetKey("space") && collision.gameObject.CompareTag("ActivatedTrap") && !_hasActivated)
         {
 
 
@@ -103,7 +103,7 @@ public class BurstDamage : MonoBehaviour
 
             if (_enemyStats.enemyHealth <= 0)
             {
-                Destroy(this);
+                Destroy(gameObject, 0);
             }
 
             Invoke("ResetActivation", _trapStats.burstSpeed);
