@@ -25,7 +25,7 @@ public class DamageOverTime : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Traps")
+        if (collision.gameObject.tag == "Traps" || collision.gameObject.tag == "ActivatedTrap")
         {
             if (!_hasTakenDamage)
             {
