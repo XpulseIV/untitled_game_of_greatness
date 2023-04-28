@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") == true)
         {
             health--;
-            _updateHealthBar.SetHealth(health);
+            //_updateHealthBar.SetHealth(health);
         }
     }
 }

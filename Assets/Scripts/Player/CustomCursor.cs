@@ -28,19 +28,19 @@ public class CustomCursor : MonoBehaviour
         {
             if (collision.gameObject.tag == "Traps")
             {
-                Debug.Log("Collided with trap");
+                //Debug.Log("Collided with trap");
                 collision.gameObject.tag = "ActivatedTrap";
                 Invoke("UtilityYes", 0.1f);
             }
             else if (collision.gameObject.tag == "ConveyourBelt")
             {
-                Debug.Log("Collided with ConveyourBelt");
+                //Debug.Log("Collided with ConveyourBelt");
                 collision.gameObject.tag = "ActivatedConveyourBelt";
                 Invoke("UtilityYes", 0.1f);
             }
             else if (collision.gameObject.tag == "Turret")
             {
-                Debug.Log("Collided with Turrets");
+                //Debug.Log("Collided with Turrets");
                 collision.gameObject.tag = "ActivatedTurret";
                 Invoke("UtilityYes", 0.1f);
             }
