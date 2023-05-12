@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 33870065842963374}
   - component: {fileID: 4076275773367067553}
   - component: {fileID: 4076275773367067548}
+  - component: {fileID: 4033650473778177666}
   m_Layer: 0
   m_Name: T-spelaren
   m_TagString: Player
@@ -178,3 +179,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4033650473778177666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4076275773367067554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a2e8f9feda2d744b9ef08c99a9b499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building1Prefab: {fileID: 1020066569073085016, guid: 1a089c39d41016a48b85a8f603e2c1b1, type: 3}
+  building2Prefab: {fileID: 4996510629864350837, guid: 07d9c5e49f7088d4d9aa91a08cc99d96, type: 3}
+  building3Prefab: {fileID: 6731356363499097894, guid: 0bbbb2cc7a651f247b4a4f187e2284c5, type: 3}
+  building4Prefab: {fileID: 5287947796883059836, guid: e400a32ff44aed446801f748e4a549bd, type: 3}
+  ghost: {fileID: 2100000, guid: 69eb340ebdf231545ba27b926f42c9d0, type: 2}
+  ghostBuilding: {fileID: 0}
+  selectedBuilding: 0
