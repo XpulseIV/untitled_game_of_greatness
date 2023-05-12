@@ -262,10 +262,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: M-spelaren2.0
       objectReference: {fileID: 0}
-    - target: {fileID: 8882752310028748474, guid: 11b15930aa122704cb332b9d107caf88, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11b15930aa122704cb332b9d107caf88, type: 3}
 --- !u!1001 &352115558
@@ -293,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5344173239087072919, guid: d4d9794ea92b11c4ba3869465d6af4fe, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5344173239087072919, guid: d4d9794ea92b11c4ba3869465d6af4fe, type: 3}
       propertyPath: m_AnchorMax.x

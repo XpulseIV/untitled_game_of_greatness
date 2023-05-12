@@ -88,26 +88,31 @@ public class BurstDamage : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        var _trapStats = collision.gameObject.GetComponent<TrapStats>();
-        var _activateSelf = collision.gameObject.GetComponent<ActivateSelf>();
-
-        if (_activateSelf.isActivated && Input.GetKey("space") && collision.gameObject.CompareTag("ActivatedTrap") && !_hasActivated)
+        
+        if(collision.gameObject.GetComponent<TrapStats>() != null)
         {
+            var _trapStats = collision.gameObject.GetComponent<TrapStats>();
+            var _activateSelf = collision.gameObject.GetComponent<ActivateSelf>();
 
-
-            Debug.Log("Should take damage");
-
-            _hasActivated = true;
-
-            _enemyStats.enemyHealth -= _trapStats.burstDamage;
-
-            if (_enemyStats.enemyHealth <= 0)
+            if (_activateSelf.isActivated && Input.GetKey("space") && collision.gameObject.CompareTag("ActivatedTrap") && !_hasActivated)
             {
-                Destroy(gameObject, 0);
-            }
 
-            Invoke("ResetActivation", _trapStats.burstSpeed);
+
+                Debug.Log("Should take damage");
+
+                _hasActivated = true;
+
+                _enemyStats.enemyHealth -= _trapStats.burstDamage;
+
+                if (_enemyStats.enemyHealth <= 0)
+                {
+                    Destroy(gameObject, 0);
+                }
+
+                Invoke("ResetActivation", _trapStats.burstSpeed);
+            }
         }
+        
 
 
     }

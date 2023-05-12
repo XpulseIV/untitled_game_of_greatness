@@ -9,7 +9,8 @@ public class TouchPlayer : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") == true)
         {
-            Destroy(this);
+            Debug.Log("Should die");
+            Destroy(gameObject);
         }
     }
 }

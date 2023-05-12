@@ -98,7 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a21d8096a1ecb4f80bf1205319715e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallHealth: 5
+  wallMaxHealth: 10
+  wallSprites:
+  - {fileID: 1393136716, guid: 72405daaf978e2546a6fc8230dfdc0d7, type: 3}
+  - {fileID: 563166087, guid: 72405daaf978e2546a6fc8230dfdc0d7, type: 3}
+  - {fileID: -33561099, guid: 72405daaf978e2546a6fc8230dfdc0d7, type: 3}
 --- !u!61 &1020066569073085019
 BoxCollider2D:
   m_ObjectHideFlags: 0
