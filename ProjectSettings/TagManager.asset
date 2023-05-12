@@ -72,6 +72,9 @@ TagManager:
   - name: Wall
     uniqueID: 509378605
     locked: 0
+  - name: Bullet
+    uniqueID: 1534139781
+    locked: 0
   - name: M-spelaren
     uniqueID: 2039399407
     locked: 0
