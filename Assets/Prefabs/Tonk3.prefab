@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 4996510629580691398}
   m_Layer: 0
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639d89236cf757e49acf64950f19b338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 0
+  mousePos: {x: 0, y: 0, z: 0}
   animsYazz: {fileID: 4996510629580691398}
   Bullet: {fileID: 4907183228656089669, guid: f2d73f6e11c125f4e85e07b7c619ce6d, type: 3}
   CannonPoint: {fileID: 4996510628140633961}
@@ -250,6 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4996510629864350838}
   - component: {fileID: 325601460624275097}
+  - component: {fileID: 17355329}
   m_Layer: 0
   m_Name: Tonk3
   m_TagString: Turret
@@ -300,3 +301,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7636795, y: 0.7731209}
   m_EdgeRadius: 0
+--- !u!114 &17355329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4996510629864350837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a8e5cce6f5899428d931c390e7227e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectTag: ActivatedTurret
+  _activasionRange: 5
+  _normalTag: Turret
+  isActivated: 0
+  mspelaren: {fileID: 0}

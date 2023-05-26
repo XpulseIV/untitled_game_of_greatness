@@ -19,11 +19,15 @@ public class HitByNormalBullet : MonoBehaviour
         
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
         {
             _enemyStats.enemyHealth -= normalBulletDamage;
+        }
+        if (_enemyStats.enemyHealth <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
