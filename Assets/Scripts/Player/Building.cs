@@ -185,13 +185,8 @@ public class Building : MonoBehaviour
         {
         case 1:
             if (CanAfford() && drawMoney) moneySript.playerMoney -= 30;
-            else if (!drawMoney)
-            {
-                goto hmmm;
-            }
             else return false;
 
-        hmmm:
             Instantiate(building1Prefab, ghostBuilding.transform.position, ghostBuilding.transform.rotation);
 
             break;
