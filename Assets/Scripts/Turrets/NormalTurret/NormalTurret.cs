@@ -3,19 +3,25 @@ using UnityEngine;
 
 public class NormalTurret : MonoBehaviour
 {
-    private Vector3 mousePos;
-    public bool isActive;
+    public Vector3 mousePos;
     private DateTime timeShot;
     public Animator animsYazz;
     public GameObject Bullet;
     public Transform CannonPoint;
+    private ActivateSelf _activateSelf;
 
     public int shootSpeed;
     public int health;
 
+    private void Start()
+    {
+        _activateSelf = GetComponentInParent<ActivateSelf>();
+    }
+
     void Update()
     {
-        if (isActive)
+
+        if (_activateSelf.isActivated)
         {
             animsYazz.SetBool("IsActive", true);
 

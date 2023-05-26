@@ -11,6 +11,7 @@ TagManager:
   - ActivatedConveyourBelt
   - Bullet
   - Turret
+  - ActivatedTurret
   layers:
   - Default
   - TransparentFX
