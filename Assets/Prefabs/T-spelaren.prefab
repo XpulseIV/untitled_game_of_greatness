@@ -195,6 +195,10 @@ MonoBehaviour:
   building2Prefab: {fileID: 4996510629864350837, guid: 07d9c5e49f7088d4d9aa91a08cc99d96, type: 3}
   building3Prefab: {fileID: 6731356363499097894, guid: 0bbbb2cc7a651f247b4a4f187e2284c5, type: 3}
   building4Prefab: {fileID: 5287947796883059836, guid: e400a32ff44aed446801f748e4a549bd, type: 3}
+  ghost1Prefab: {fileID: 136793490900125946, guid: 22cb1e4bfb7a83040a95345f01364a56, type: 3}
+  ghost2Prefab: {fileID: 1313431937875879281, guid: bc6ef9909e069d942bd71dbe1e1a897e, type: 3}
+  ghost3Prefab: {fileID: 8405390773135415030, guid: 88e79bb5c919baa4c93e6587b9affbf7, type: 3}
+  ghost4Prefab: {fileID: 325193710631771514, guid: 5f705b2ae8274534b8257cc42abd29a3, type: 3}
   ghost: {fileID: 2100000, guid: 69eb340ebdf231545ba27b926f42c9d0, type: 2}
   ghostBuilding: {fileID: 0}
   selectedBuilding: 0

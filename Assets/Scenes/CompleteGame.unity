@@ -552,6 +552,22 @@ PrefabInstance:
       propertyPath: coinDispaly
       value: 
       objectReference: {fileID: 1152363246}
+    - target: {fileID: 4033650473778177666, guid: de28be12048c7d946bfd59ce55534416, type: 3}
+      propertyPath: ghost1Prefab
+      value: 
+      objectReference: {fileID: 136793490900125946, guid: 22cb1e4bfb7a83040a95345f01364a56, type: 3}
+    - target: {fileID: 4033650473778177666, guid: de28be12048c7d946bfd59ce55534416, type: 3}
+      propertyPath: ghost2Prefab
+      value: 
+      objectReference: {fileID: 1313431937875879281, guid: bc6ef9909e069d942bd71dbe1e1a897e, type: 3}
+    - target: {fileID: 4033650473778177666, guid: de28be12048c7d946bfd59ce55534416, type: 3}
+      propertyPath: ghost3Prefab
+      value: 
+      objectReference: {fileID: 8405390773135415030, guid: 88e79bb5c919baa4c93e6587b9affbf7, type: 3}
+    - target: {fileID: 4033650473778177666, guid: de28be12048c7d946bfd59ce55534416, type: 3}
+      propertyPath: ghost4Prefab
+      value: 
+      objectReference: {fileID: 325193710631771514, guid: 5f705b2ae8274534b8257cc42abd29a3, type: 3}
     - target: {fileID: 4076275773367067552, guid: de28be12048c7d946bfd59ce55534416, type: 3}
       propertyPath: m_RootOrder
       value: 10

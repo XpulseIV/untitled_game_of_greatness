@@ -9,13 +9,26 @@ public class Building : MonoBehaviour
     public GameObject building2Prefab; // Prefab of building 2
     public GameObject building3Prefab; // Prefab of building 3
     public GameObject building4Prefab; // Prefab of building 4
+
+    public GameObject ghost1Prefab; // Prefab of ghost 1
+    public GameObject ghost2Prefab; // Prefab of ghost 2
+    public GameObject ghost3Prefab; // Prefab of ghost 3
+    public GameObject ghost4Prefab; // Prefab of ghost 4
+
     public Material ghost;
 
     public GameObject ghostBuilding; // Ghost building object
     public int selectedBuilding; // Selected building index (1, 2, 3, or 4)
     public int prevSelectedBuilding; // Selected building index (1, 2, 3, or 4)
-    private bool m_isPlacing;
     private enum PressedKey { None, One, Two, Three, Four }
+
+    public bool drawMoney = true;
+
+    public void Start()
+    {
+        prevSelectedBuilding = -2;
+        selectedBuilding = -1;
+    }
 
     void Update()
     {
@@ -23,19 +36,23 @@ public class Building : MonoBehaviour
         {
             if (IsNumberKeyPressed(out PressedKey pressed))
             {
-                if (!m_isPlacing)
+                selectedBuilding = (int)pressed;
+
+                if ((ghostBuilding == null))
                 {
-                    selectedBuilding = (int)pressed;
-                    prevSelectedBuilding = selectedBuilding;
-                    m_isPlacing = true;
-                }
-                else
-                {
-                    selectedBuilding = (int)pressed;
+                    PlaceGhostBuilding();
                 }
 
-                Destroy(ghostBuilding);
-                PlaceGhostBuilding(); // Place ghost
+                if ((ghostBuilding != null) && (selectedBuilding == prevSelectedBuilding)) return;
+
+                if ((ghostBuilding != null) && (selectedBuilding != prevSelectedBuilding))
+                {
+                    Destroy(ghostBuilding);
+                    PlaceGhostBuilding();
+                }
+
+                prevSelectedBuilding = selectedBuilding;
+                selectedBuilding = -1;
             }
 
             if (Input.GetKeyDown(KeyCode.Space))
@@ -43,18 +60,16 @@ public class Building : MonoBehaviour
                 if (PlaceBuilding())
                 {
                     Destroy(ghostBuilding);
-                    m_isPlacing = false;
                 }
             }
 
             if (Input.GetKeyDown(KeyCode.Escape) && (ghostBuilding != null))
             {
                 Destroy(ghostBuilding);
-                m_isPlacing = false;
             }
         }
 
-        if (m_isPlacing)
+        if (ghostBuilding != null)
         {
             UpdateGhostPos();
         }
@@ -106,55 +121,6 @@ public class Building : MonoBehaviour
         ghostBuilding.transform.rotation = newRotQuat;
     }
 
-    private bool PlaceBuilding()
-    {
-        var colliders = new List<Collider2D>();
-        ghostBuilding.GetComponent<BoxCollider2D>().OverlapCollider
-            (new ContactFilter2D().NoFilter(), colliders);
-
-        if (colliders.Count != 0)
-        {
-            return false;
-        }
-
-        Money moneySript = GetComponent<Money>();
-
-        switch (selectedBuilding)
-        {
-        case 1:
-            if (moneySript.playerMoney < 30) return false;
-
-            Instantiate(building1Prefab, ghostBuilding.transform.position, ghostBuilding.transform.rotation);
-            moneySript.playerMoney -= 30;
-
-            break;
-        case 2:
-            if (moneySript.playerMoney < 150) return false;
-
-            Instantiate(building2Prefab, ghostBuilding.transform.position, ghostBuilding.transform.rotation);
-            moneySript.playerMoney -= 150;
-
-            break;
-        case 3:
-            if (moneySript.playerMoney < 65) return false;
-
-            Instantiate(building3Prefab, ghostBuilding.transform.position, ghostBuilding.transform.rotation);
-            moneySript.playerMoney -= 65;
-
-            break;
-
-        case 4:
-            if (moneySript.playerMoney < 45) return false;
-
-            Instantiate(building4Prefab, ghostBuilding.transform.position, ghostBuilding.transform.rotation);
-            moneySript.playerMoney -= 45;
-
-            break;
-        }
-
-        return true;
-    }
-
     private void PlaceGhostBuilding()
     {
         Vector3 playerRot = transform.rotation.eulerAngles;
@@ -170,10 +136,10 @@ public class Building : MonoBehaviour
 
         ghostBuilding = selectedBuilding switch
         {
-            1 => Instantiate(building1Prefab, newPos, newRotQuat),
-            2 => Instantiate(building2Prefab, newPos, newRotQuat),
-            3 => Instantiate(building3Prefab, newPos, newRotQuat),
-            4 => Instantiate(building4Prefab, newPos, newRotQuat),
+            1 => Instantiate(ghost1Prefab, newPos, newRotQuat),
+            2 => Instantiate(ghost2Prefab, newPos, newRotQuat),
+            3 => Instantiate(ghost3Prefab, newPos, newRotQuat),
+            4 => Instantiate(ghost4Prefab, newPos, newRotQuat),
             var _ => throw new ArgumentOutOfRangeException()
         };
 
@@ -189,5 +155,70 @@ public class Building : MonoBehaviour
 
             break;
         }
+    }
+
+    private bool CanAfford()
+    {
+        int playerMoney = GetComponent<Money>().playerMoney;
+
+        return selectedBuilding switch
+        {
+            1 => playerMoney >= 30,
+            2 => playerMoney >= 150,
+            3 => playerMoney >= 65,
+            4 => playerMoney >= 45,
+            _ => false
+        };
+    }
+
+    private bool PlaceBuilding()
+    {
+        var colliders = new List<Collider2D>();
+        ghostBuilding.GetComponent<BoxCollider2D>().OverlapCollider
+            (new ContactFilter2D().NoFilter(), colliders);
+
+        if (colliders.Count != 0) return false;
+
+        Money moneySript = GetComponent<Money>();
+
+        switch (selectedBuilding)
+        {
+        case 1:
+            if (CanAfford() && drawMoney) moneySript.playerMoney -= 30;
+            else if (!drawMoney)
+            {
+                goto hmmm;
+            }
+            else return false;
+
+        hmmm:
+            Instantiate(building1Prefab, ghostBuilding.transform.position, ghostBuilding.transform.rotation);
+
+            break;
+        case 2:
+            if (CanAfford() && drawMoney) moneySript.playerMoney -= 150;
+            else return false;
+
+            Instantiate(building2Prefab, ghostBuilding.transform.position, ghostBuilding.transform.rotation);
+
+            break;
+        case 3:
+            if (CanAfford() && drawMoney) moneySript.playerMoney -= 65;
+            else return false;
+
+            Instantiate(building3Prefab, ghostBuilding.transform.position, ghostBuilding.transform.rotation);
+
+            break;
+
+        case 4:
+            if (CanAfford() && drawMoney) moneySript.playerMoney -= 45;
+            else return false;
+
+            Instantiate(building4Prefab, ghostBuilding.transform.position, ghostBuilding.transform.rotation);
+
+            break;
+        }
+
+        return true;
     }
 }
