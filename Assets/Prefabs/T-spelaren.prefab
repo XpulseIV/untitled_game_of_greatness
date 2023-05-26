@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinDispaly: {fileID: 0}
-  playerMoney: 0
+  playerMoney: 300
 --- !u!114 &4076275773367067553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,3 +198,4 @@ MonoBehaviour:
   ghost: {fileID: 2100000, guid: 69eb340ebdf231545ba27b926f42c9d0, type: 2}
   ghostBuilding: {fileID: 0}
   selectedBuilding: 0
+  prevSelectedBuilding: 0
