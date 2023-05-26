@@ -12,7 +12,8 @@ public class Building : MonoBehaviour
     public Material ghost;
 
     public GameObject ghostBuilding; // Ghost building object
-    public int selectedBuilding; // Selected building index (1, 2, or 3)
+    public int selectedBuilding; // Selected building index (1, 2, 3, or 4)
+    public int prevSelectedBuilding; // Selected building index (1, 2, 3, or 4)
     private bool m_isPlacing;
     private enum PressedKey { None, One, Two, Three, Four }
 
@@ -22,26 +23,34 @@ public class Building : MonoBehaviour
         {
             if (IsNumberKeyPressed(out PressedKey pressed))
             {
-                switch (m_isPlacing)
+                if (!m_isPlacing)
                 {
-                // Not currently placing ghost
-                case false:
                     selectedBuilding = (int)pressed;
+                    prevSelectedBuilding = selectedBuilding;
                     m_isPlacing = true;
-                    PlaceGhostBuilding(); // Place ghost
-
-                    break;
-
-                // Is showing ghost, so place the real thing
-                case true:
-                    if (PlaceBuilding())
-                    {
-                        Destroy(ghostBuilding);
-                        m_isPlacing = false;
-                    }
-
-                    break;
                 }
+                else
+                {
+                    selectedBuilding = (int)pressed;
+                }
+
+                Destroy(ghostBuilding);
+                PlaceGhostBuilding(); // Place ghost
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (PlaceBuilding())
+                {
+                    Destroy(ghostBuilding);
+                    m_isPlacing = false;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape) && (ghostBuilding != null))
+            {
+                Destroy(ghostBuilding);
+                m_isPlacing = false;
             }
         }
 
@@ -108,23 +117,37 @@ public class Building : MonoBehaviour
             return false;
         }
 
+        Money moneySript = GetComponent<Money>();
+
         switch (selectedBuilding)
         {
         case 1:
+            if (moneySript.playerMoney < 30) return false;
+
             Instantiate(building1Prefab, ghostBuilding.transform.position, ghostBuilding.transform.rotation);
+            moneySript.playerMoney -= 30;
 
             break;
         case 2:
+            if (moneySript.playerMoney < 150) return false;
+
             Instantiate(building2Prefab, ghostBuilding.transform.position, ghostBuilding.transform.rotation);
+            moneySript.playerMoney -= 150;
 
             break;
         case 3:
+            if (moneySript.playerMoney < 65) return false;
+
             Instantiate(building3Prefab, ghostBuilding.transform.position, ghostBuilding.transform.rotation);
+            moneySript.playerMoney -= 65;
 
             break;
 
         case 4:
+            if (moneySript.playerMoney < 45) return false;
+
             Instantiate(building4Prefab, ghostBuilding.transform.position, ghostBuilding.transform.rotation);
+            moneySript.playerMoney -= 45;
 
             break;
         }
@@ -154,6 +177,17 @@ public class Building : MonoBehaviour
             var _ => throw new ArgumentOutOfRangeException()
         };
 
-        ghostBuilding.GetComponent<SpriteRenderer>().material = ghost;
+        switch (selectedBuilding)
+        {
+        case 2:
+            SpriteRenderer[] turretSpriteRenderers = ghostBuilding.GetComponentsInChildren<SpriteRenderer>();
+            for (int i = 0; i < turretSpriteRenderers.Length; i++) turretSpriteRenderers[i].material = ghost;
+
+            break;
+        default:
+            ghostBuilding.GetComponent<SpriteRenderer>().material = ghost;
+
+            break;
+        }
     }
 }
