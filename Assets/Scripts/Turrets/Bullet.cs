@@ -22,6 +22,7 @@ namespace Turrets
         {
             // Move the bullet in its direction at a constant speed
             transform.position += direction * speed * Time.deltaTime;
+
         }
     }
 }
